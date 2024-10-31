@@ -24,6 +24,7 @@
 
 package io.github.todolist.core.domain;
 
+import io.github.pixee.security.SystemCommand;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -103,7 +104,7 @@ public class Todo implements Serializable {
 			BufferedWriter writer = new BufferedWriter(new FileWriter("title.txt"));
 	        		writer.write(title);
 	        		writer.close();
-	        		Process p = Runtime.getRuntime().exec(NATIVE2ASCII + " title.txt");
+	        		Process p = SystemCommand.runCommand(Runtime.getRuntime(), NATIVE2ASCII + " title.txt");
 	        		BufferedReader output = getOutput(p);
 	        		String line = "";
 

@@ -15,6 +15,7 @@
         <tapestry.version>5.3.8</tapestry.version>
         <struts2.version>2.3.20</struts2.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <versions.java-security-toolkit>1.2.0</versions.java-security-toolkit>
     </properties>
 
     <modules>
@@ -79,5 +80,13 @@
             </plugins>
         </pluginManagement>
     </build>
-
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>io.github.pixee</groupId>
+                <artifactId>java-security-toolkit</artifactId>
+                <version>${versions.java-security-toolkit}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 </project>

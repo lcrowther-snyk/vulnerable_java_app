@@ -24,6 +24,7 @@
 
 package io.github.todolist.core.domain;
 
+import io.github.pixee.security.BoundedLineReader;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -107,7 +108,7 @@ public class Todo implements Serializable {
 	        		BufferedReader output = getOutput(p);
 	        		String line = "";
 
-	        		while ((line = output.readLine()) != null) {
+	        		while ((line = BoundedLineReader.readLine(output, 5_000_000)) != null) {
 	        		    if(!title.equals(line))
 	        		    		System.out.println("Found non-ascii title. Converted from '" + title + "' to '" + line + "'");
 	        			title = line;

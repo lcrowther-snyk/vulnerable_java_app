@@ -30,6 +30,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.InputStreamReader;
 import java.io.Serializable;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Date;
 
@@ -100,7 +101,7 @@ public class Todo implements Serializable {
 		System.out.println("Running: " + NATIVE2ASCII);
 		try {
 
-			BufferedWriter writer = new BufferedWriter(new FileWriter("title.txt"));
+			BufferedWriter writer = Files.newBufferedWriter("title.txt".toPath());
 	        		writer.write(title);
 	        		writer.close();
 	        		Process p = Runtime.getRuntime().exec(NATIVE2ASCII + " title.txt");
